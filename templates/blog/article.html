@@ -1,5 +1,11 @@
 {% extends_with_args "templates/one-column.html" with title=article.title.rendered meta_description=article.excerpt.raw  meta_image=article.image.source_url %}
 
+{% for tag in tags %}
+  {% if tag.name == "snapcraft.io" %}
+    {% block canonical_url %}https://snapcraft.io/blog/{{ article.slug }}{% endblock %}
+  {% endif %}
+{% endfor %}
+
 {% block content %}
 
 <article>
